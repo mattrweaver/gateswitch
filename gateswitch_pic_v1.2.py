@@ -32,9 +32,9 @@ while i<30:
         camera.close()
 
         #send an email -- youtube.com/watch?v=0kpGcMjpDcw
-        smtpUser = 'webgeeklibrarian@gmail.com'
-        smtpPass = 'etioxrhggysqwzfi'
-        toAdd = 'jeancbelfiore@yahoo.com'
+        smtpUser = 'email address'
+        smtpPass = 'password'
+        toAdd = 'email to send to'
         fromAdd = smtpUser
         msg = MIMEMultipart()
          
