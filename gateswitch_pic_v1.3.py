@@ -1,4 +1,5 @@
 #this is python3
+#sends email to multiple addresses
 import RPi.GPIO as GPIO
 from time import sleep
 #import os
@@ -20,11 +21,6 @@ while i<30:
         GPIO.output(15, True)
         print('Gate switch open: ' + str(i))
         print('\t7 Output True - Green on')
-        #os.system('mail -s "check the gate" mattrweaver!@gmail.com < "check the gate"')
-        #bashCommand = 'echo "check the gate" |mail -s "check the gate" mattrweaver1@gmail.com'
-        #process = subprocess.Popen(bashCommand)
-        #output = process.communicate()[0]
-
         #take a picture
         camera = picamera.PiCamera()
         print("Say cheese!")
@@ -32,11 +28,9 @@ while i<30:
         camera.close()
 
         #send an email -- youtube.com/watch?v=0kpGcMjpDcw
-        smtpUser = 'webgeeklibrarian@gmail.com'
-        smtpPass = 'wnjemxltnqtdlmjp'
-        toAdd = ['mattrweaver1@gmail.com', 'jeancbelfiore@yahoo.com',\
-                'annsweaver@gmail.com','cweaver04@icloud.com','2165341834@txt.att.net',\
-                 '2165484889@txt.att.net','2169036949@txt.att.net','2168681880@txt.att.net']
+        smtpUser = 'emailaddress'
+        smtpPass = 'password'
+        toAdd = ['list','of','email','addresses']
         
         fromAdd = smtpUser
         msg = MIMEMultipart()
@@ -66,7 +60,6 @@ while i<30:
         s.ehlo()
         s.login(smtpUser, smtpPass)
         text = msg.as_string()
-        #s.sendmail(fromAdd,toAdd,header + '\n\n' + text)
         s.sendmail(fromAdd,toAdd,text)
         s.quit()
 
